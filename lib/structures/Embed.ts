@@ -111,8 +111,8 @@ export default class Embed {
 	 * @param url - The URL of the image
 	 * @returns This embed instance
 	 */
-  public setImage(url: string): this {
-    this.builder.setImage(url);
+  public setImage(url: URL | string): this {
+    this.builder.setImage((url instanceof URL) ? url.toString() : url);
 
     return this;
   }
@@ -122,8 +122,8 @@ export default class Embed {
 	 * @param url - The URL of the thumbnail
 	 * @returns This embed instance
 	 */
-  public setThumbnail(url: string): this {
-    this.builder.setThumbnail(url);
+  public setThumbnail(url: URL | string): this {
+    this.builder.setThumbnail((url instanceof URL) ? url.toString() : url);
 
     return this;
   }
@@ -156,9 +156,7 @@ export default class Embed {
 	 * @returns This embed instance
 	 */
   public setURL(url: URL | string): this {
-    const _url: string = (url instanceof URL) ? url.toString() : url;
-
-    this.builder.setURL(_url);
+    this.builder.setURL((url instanceof URL) ? url.toString() : url);
 
     return this;
   }
