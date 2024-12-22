@@ -6,39 +6,40 @@ import {
 	Snowflake,
 } from 'discord-api-types/v10';
 
+import BaseBuilder from './BaseBuilder';
+
 /**
  * Represents an interactive button component in a Discord message
  */
-export default class Button {
+export default class Button extends BaseBuilder {
 	/**
 	 * The internal button builder instance
-	 * @private
+	 * @protected
 	 */
-	private readonly builder: ButtonBuilder;
+	declare protected builder: ButtonBuilder;
 
 	/**
 	 * The raw data for this button component
 	 * @public
 	 * @readonly
 	 */
-	public readonly data: Partial<APIButtonComponent>;
+	declare public readonly data: Partial<APIButtonComponent>;
 
 	/**
 	 * Creates a new button instance
 	 * @param data - Optional initial data for the button
 	 */
 	public constructor(data?: Partial<APIButtonComponent>) {
-		this.builder = new ButtonBuilder(data);
-		this.data = this.builder.data;
+		super(new ButtonBuilder(data));
 	}
 
-  /**
-   * Whether this button is currently disabled
-   * @returns True if the button is disabled, false otherwise
-   */
-  public get isDisabled(): boolean {
-    return Boolean(this.data?.disabled);
-  }
+	/**
+	 * Whether this button is currently disabled
+	 * @returns True if the button is disabled, false otherwise
+	 */
+	public get isDisabled(): boolean {
+		return Boolean(this.data?.disabled);
+	}
 
 	/**
 	 * Sets the custom ID of this button
@@ -101,7 +102,7 @@ export default class Button {
 	 * @returns This button instance
 	 */
 	public setURL(url: URL | string): this {
-		this.builder.setURL((url instanceof URL) ? url.toString() : url);
+		this.builder.setURL(url instanceof URL ? url.toString() : url);
 
 		return this;
 	}

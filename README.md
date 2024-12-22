@@ -1,3 +1,5 @@
+> ⚠️ **Warning:** discordium.js is currently pre-alpha state. There is no usable version yet.
+
 # discordium.js
 
 **discordium.js** is a powerful and modern TypeScript library for building scalable and feature-rich Discord bots. Designed with developers in mind, discordium.js simplifies the complexities of the Discord API while providing advanced functionality, clean abstractions, and a delightful developer experience.
