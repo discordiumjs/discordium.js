@@ -1,49 +1,49 @@
 {
-	"name": "discordium.js",
-	"version": "1.0.0",
-	"description": "",
-	"module": "src/index.js",
-	"type": "module",
-	"scripts": {
-		"format": "prettier --write .",
-		"lint": "eslint . --ext .ts,.js",
-		"prepare": "husky",
-		"postinstall": "npm run prepare",
-		"doc": "typedoc --out docs lib",
-		"precommit": "lint-staged",
-		"check-format": "prettier --check ."
-	},
-	"dependencies": {
-		"@discordjs/builders": "^1.9.0",
-		"@discordjs/collection": "^2.1.1",
-		"@discordjs/core": "^2.0.0",
-		"@discordjs/formatters": "^0.5.0",
-		"@discordjs/rest": "^2.4.0",
-		"@discordjs/util": "^1.1.1",
-		"@discordjs/voice": "^0.18.0",
-		"@discordjs/ws": "^2.0.0",
-		"discord-api-types": "^0.37.112",
-		"fast-deep-equal": "^3.1.3"
-	},
-	"devDependencies": {
-		"bun-types": "latest",
-		"typedoc": "^0.27",
-		"prettier": "^3.4",
-		"eslint": "^9.17",
-		"eslint-config-prettier": "^9.1",
-		"eslint-plugin-import": "^2.31",
-		"eslint-plugin-node": "^11.1",
-		"eslint-plugin-promise": "^7.2",
-		"lint-staged": "^15.2",
-		"husky": "^9.1.7"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"lint-staged": {
-		"*.{ts,js,json,md}": [
-			"prettier --write",
-			"eslint --fix"
-		]
-	}
+  "name": "discordium.js",
+  "version": "1.0.0",
+  "description": "🌱 New Modern and Minimalist Discord API wrapper",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .ts,.js",
+    "prepare": "husky",
+    "postinstall": "npm run prepare",
+    "doc": "typedoc --out docs lib",
+    "precommit": "lint-staged",
+    "check-format": "prettier --check ."
+  },
+  "dependencies": {
+    "@discordjs/builders": "^1.9.0",
+    "@discordjs/collection": "^2.1.1",
+    "@discordjs/core": "^2.0.0",
+    "@discordjs/formatters": "^0.5.0",
+    "@discordjs/rest": "^2.4.0",
+    "@discordjs/util": "^1.1.1",
+    "@discordjs/voice": "^0.18.0",
+    "@discordjs/ws": "^2.0.0",
+    "fast-deep-equal": "^3.1.3"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "discord-api-types": "^0.37.112",
+    "eslint": "^9.17",
+    "eslint-config-prettier": "^9.1",
+    "eslint-plugin-import": "^2.31",
+    "eslint-plugin-node": "^11.1",
+    "eslint-plugin-promise": "^7.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2",
+    "prettier": "^3.4",
+    "typedoc": "^0.27"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
 }
