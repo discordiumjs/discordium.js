@@ -100,8 +100,8 @@ export default class Button {
 	 * @param url - The URL to link to
 	 * @returns This button instance
 	 */
-	public setURL(url: string): this {
-		this.builder.setURL(url);
+	public setURL(url: URL | string): this {
+		this.builder.setURL((url instanceof URL) ? url.toString() : url);
 
 		return this;
 	}
