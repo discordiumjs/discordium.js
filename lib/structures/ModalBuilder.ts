@@ -27,7 +27,7 @@ export default class Modal extends BaseBuilder {
 	 * @public
 	 * @readonly
 	 */
-	declare public readonly data: Partial<APIModalInteractionResponseCallbackData>;
+	declare public readonly data: APIModalInteractionResponseCallbackData;
 
 	/**
 	 * Creates a new modal instance
