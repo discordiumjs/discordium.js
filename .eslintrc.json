@@ -16,7 +16,7 @@
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": ["off"],
     "promise/always-return": "off"
   }
 }
