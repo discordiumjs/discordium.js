@@ -1,0 +1,37 @@
+{
+  "name": "discordium.ts",
+  "version": "1.0.0",
+  "description": "",
+  "module": "lib/index.ts",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .ts,.js",
+    "prepare": "husky",
+    "postinstall": "npm run prepare",
+    "doc": "typedoc --out docs lib",
+    "precommit": "lint-staged",
+    "check-format": "prettier --check ."
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typedoc": "^0.27",
+    "prettier": "^3.4",
+    "eslint": "^9.17",
+    "eslint-config-prettier": "^9.1",
+    "eslint-plugin-import": "^2.31",
+    "eslint-plugin-node": "^11.1",
+    "eslint-plugin-promise": "^7.2",
+    "lint-staged": "^15.2",
+    "husky": "^9.1.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
