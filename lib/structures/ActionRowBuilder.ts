@@ -14,19 +14,23 @@ import BaseBuilder from './BaseBuilder';
  * Represents a row of interactive components in a Discord message
  * @template ComponentType - The type of components this action row can contain
  */
-export default class ActionRow<ComponentType extends AnyComponentBuilder> extends BaseBuilder {
+export default class ActionRow<
+	ComponentType extends AnyComponentBuilder,
+> extends BaseBuilder {
 	/**
 	 * The internal action row builder instance
 	 * @protected
 	 */
-	protected declare builder: ActionRowBuilder<ComponentType>;
+	declare protected builder: ActionRowBuilder<ComponentType>;
 
 	/**
 	 * The raw data for this action row component
 	 * @public
 	 * @readonly
 	 */
-	public declare readonly data: Partial<APIActionRowComponent<APIActionRowComponentTypes>>;
+	declare public readonly data: Partial<
+		APIActionRowComponent<APIActionRowComponentTypes>
+	>;
 
 	/**
 	 * Creates a new action row instance
@@ -34,7 +38,9 @@ export default class ActionRow<ComponentType extends AnyComponentBuilder> extend
 	 * @param param0.components - The components to add to this action row
 	 * @param param0.data - Additional data for the action row
 	 */
-	public constructor(options?: Partial<APIActionRowComponent<APIActionRowComponentTypes>>) {
+	public constructor(
+		options?: Partial<APIActionRowComponent<APIActionRowComponentTypes>>
+	) {
 		super(new ActionRowBuilder<ComponentType>(options));
 	}
 

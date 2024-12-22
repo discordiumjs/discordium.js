@@ -37,8 +37,9 @@ function _makeDiscordiumError(Base) {
  * @throws {Error} If the code is invalid or has no associated message
  */
 export function message(code, args: unknown[]): string {
-	if (!(code in DiscordiumErrorCodes)) throw new Error('Error code must be a valid DiscordiumErrorCodes');
-	
+	if (!(code in DiscordiumErrorCodes))
+		throw new Error('Error code must be a valid DiscordiumErrorCodes');
+
 	const msg = Messages[code];
 	if (!msg) throw new Error(`No message associated with error code: ${code}.`);
 	// @ts-ignore

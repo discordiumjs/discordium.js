@@ -19,10 +19,7 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noImplicitAny": false,
-		"types": [
-			"bun-types",
-			"node"
-		]
+		"types": ["bun-types", "node"]
 	},
 	"include": ["lib"],
 	"exclude": ["node_modules", "src", "tests", "dist"]

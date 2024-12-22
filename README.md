@@ -47,23 +47,26 @@ import { Client, SlashCommand } from 'discordium.js';
 
 // Initialize the client
 const client = new Client({
-    token: 'YOUR_DISCORD_BOT_TOKEN',
-    intents: ['Guilds', 'GuildMessages', 'MessageContent'],
+	token: 'YOUR_DISCORD_BOT_TOKEN',
+	intents: ['Guilds', 'GuildMessages', 'MessageContent'],
 });
 
 // Create a slash command
 client.commands.add(
-    new SlashCommand({
-        name: 'ping',
-        description: 'Replies with Pong!',
-        execute: async (interaction) => {
-            await interaction.reply('Pong!');
-        },
-    })
+	new SlashCommand({
+		name: 'ping',
+		description: 'Replies with Pong!',
+		execute: async (interaction) => {
+			await interaction.reply('Pong!');
+		},
+	})
 );
 
 // Start the bot
-client.start().then(() => console.log('Bot is running!')).catch(console.error);
+client
+	.start()
+	.then(() => console.log('Bot is running!'))
+	.catch(console.error);
 ```
 
 ---
@@ -73,6 +76,7 @@ client.start().then(() => console.log('Bot is running!')).catch(console.error);
 Comprehensive documentation is available at [discordium.js/docs](https://example.com/docs).
 
 ### Topics Covered:
+
 - 📂 Setting up your environment
 - 🖊️ Creating commands and events
 - ⚙️ Advanced configuration
@@ -88,6 +92,7 @@ Contributions are welcome! If you want to report issues, suggest features, or su
 ### Development Setup
 
 1. 🖥️ Clone the repository:
+
    ```bash
    git clone https://github.com/discordiumjs/discordium.js.git -b dev
    ```

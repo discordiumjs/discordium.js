@@ -89,16 +89,16 @@ export default class Modal extends BaseBuilder {
 		return this;
 	}
 
-  /**
-   * Sets the title of this modal
-   * @param title - The title to set
-   * @returns This modal instance
-   */
-  public setTitle(title: string): this {
-    this.builder.setTitle(title);
+	/**
+	 * Sets the title of this modal
+	 * @param title - The title to set
+	 * @returns This modal instance
+	 */
+	public setTitle(title: string): this {
+		this.builder.setTitle(title);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Converts this modal to a JSON object
