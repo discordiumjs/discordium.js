@@ -1,3 +1,2 @@
 import BaseManager from './BaseManager';
-import { JSONErrorCodes } from '../errors';
-
+import { makeDiscordiumError, JSONErrorCodes } from '../errors';
