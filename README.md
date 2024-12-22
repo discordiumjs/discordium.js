@@ -87,12 +87,12 @@ Contributions are welcome! If you want to report issues, suggest features, or su
 
 1. 🖥️ Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/discordium.js.git -b dev
+   git clone https://github.com/discordiumjs/discordium.js.git -b dev
    ```
 
 2. 📥 Install dependencies:
    ```bash
-   bun install
+   npm install
    ```
 
 ---
