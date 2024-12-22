@@ -37,8 +37,6 @@ export default class Modal extends BaseBuilder {
 		options?: Partial<APIModalInteractionResponseCallbackData>
 	) {
 		super(new ModalBuilder(options));
-
-		new ModalBuilder().
 	}
 
 	/**
