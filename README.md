@@ -1,6 +1,6 @@
-# Discordium.ts
+# discordium.js
 
-**Discordium.ts** is a powerful and modern TypeScript library for building scalable and feature-rich Discord bots. Designed with developers in mind, Discordium.ts simplifies the complexities of the Discord API while providing advanced functionality, clean abstractions, and a delightful developer experience.
+**discordium.js** is a powerful and modern TypeScript library for building scalable and feature-rich Discord bots. Designed with developers in mind, discordium.js simplifies the complexities of the Discord API while providing advanced functionality, clean abstractions, and a delightful developer experience.
 
 ---
 
@@ -18,10 +18,20 @@
 
 ## 📦 Installation
 
-Install the library using Bun:
+Install the library using your favorite package manager:
 
 ```bash
-bun add discordiumts/discordium.ts
+# Using npm
+npm install discordium.js
+
+# Using yarn
+yarn add discordium.js
+
+# Using pnpm
+pnpm add discordium.js
+
+# Using bun
+bun add discordium.js
 ```
 
 ---
@@ -31,7 +41,7 @@ bun add discordiumts/discordium.ts
 ### Setting Up a Bot
 
 ```typescript
-import { Client, SlashCommand } from 'discordium.ts';
+import { Client, SlashCommand } from 'discordium.js';
 
 // Initialize the client
 const client = new Client({
@@ -58,7 +68,7 @@ client.start().then(() => console.log('Bot is running!')).catch(console.error);
 
 ## 📖 Documentation
 
-Comprehensive documentation is available at [discordium.ts/docs](https://example.com/docs).
+Comprehensive documentation is available at [discordium.js/docs](https://example.com/docs).
 
 ### Topics Covered:
 - 📂 Setting up your environment
@@ -77,7 +87,7 @@ Contributions are welcome! If you want to report issues, suggest features, or su
 
 1. 🖥️ Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/discordium.ts.git -b dev
+   git clone https://github.com/yourusername/discordium.js.git -b dev
    ```
 
 2. 📥 Install dependencies:
@@ -106,4 +116,4 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
 
 ---
 
-### ✨ Made with ❤️ by the Discordium.ts Team
+### ✨ Made with ❤️ by the discordium.js Team

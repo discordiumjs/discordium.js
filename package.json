@@ -1,8 +1,8 @@
 {
-  "name": "discordium.ts",
+  "name": "discordium.js",
   "version": "1.0.0",
   "description": "",
-  "module": "lib/index.ts",
+  "module": "src/index.js",
   "type": "module",
   "scripts": {
     "format": "prettier --write .",
