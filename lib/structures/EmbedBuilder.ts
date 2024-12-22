@@ -178,7 +178,7 @@ export default class Embed extends BaseBuilder {
 		const fixed: APIEmbedField[] = [];
 
 		for (const entry of fields) {
-			if (Array.isArray(entry)) return this.fieldFixer(entry);
+			if (entry && Array.isArray(entry)) return this.fieldFixer(entry);
 
 			let data: APIEmbedField = {
 				name: entry?.name,
