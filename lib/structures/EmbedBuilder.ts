@@ -3,25 +3,28 @@ import {
 	type RGBTuple,
 	type EmbedAuthorOptions,
 	type RestOrArray,
-  type EmbedFooterOptions,
+	type EmbedFooterOptions,
 } from '@discordjs/builders';
 import type { APIEmbed, APIEmbedField } from 'discord-api-types/v10';
+
+import BaseBuilder from './BaseBuilder';
 
 /**
  * Represents an embed message component in a Discord message
  */
-export default class Embed {
+export default class Embed extends BaseBuilder {
 	/**
 	 * The internal embed builder instance
-	 * @private
+	 * @protected
 	 */
-	private readonly builder: EmbedBuilder;
+	declare protected builder: EmbedBuilder;
 
 	/**
 	 * The raw data for this embed component
-	 * @private
+	 * @public
+	 * @readonly
 	 */
-	private readonly data: APIEmbed;
+	declare public readonly data: APIEmbed;
 
 	/**
 	 * Creates a new embed instance
@@ -29,10 +32,7 @@ export default class Embed {
 	 */
 	public constructor(data?: APIEmbed) {
 		// @ts-ignore
-		this.builder = new EmbedBuilder(data);
-		this.data = this.builder.data;
-
-		this.builder.setURL
+		super(new EmbedBuilder(data));
 	}
 
 	/**
@@ -68,106 +68,106 @@ export default class Embed {
 	 * @returns This embed instance
 	 */
 	public setAuthor(options: EmbedAuthorOptions): this {
-    this.builder.setAuthor(options);
+		this.builder.setAuthor(options);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the color of this embed
 	 * @param color - The color to set, as an RGB tuple or number
 	 * @returns This embed instance
 	 */
-  public setColor(color: RGBTuple | number): this {
-    this.builder.setColor(color);
+	public setColor(color: RGBTuple | number): this {
+		this.builder.setColor(color);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the description of this embed
 	 * @param desc - The description text
 	 * @returns This embed instance
 	 */
-  public setDescription(desc: string): this {
-    this.builder.setDescription(desc);
+	public setDescription(desc: string): this {
+		this.builder.setDescription(desc);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the footer of this embed
 	 * @param footer - The footer options
 	 * @returns This embed instance
 	 */
-  public setFooter(footer: EmbedFooterOptions): this {
-    this.builder.setFooter(footer);
+	public setFooter(footer: EmbedFooterOptions): this {
+		this.builder.setFooter(footer);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the image of this embed
 	 * @param url - The URL of the image
 	 * @returns This embed instance
 	 */
-  public setImage(url: URL | string): this {
-    this.builder.setImage((url instanceof URL) ? url.toString() : url);
+	public setImage(url: URL | string): this {
+		this.builder.setImage(url instanceof URL ? url.toString() : url);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the thumbnail of this embed
 	 * @param url - The URL of the thumbnail
 	 * @returns This embed instance
 	 */
-  public setThumbnail(url: URL | string): this {
-    this.builder.setThumbnail((url instanceof URL) ? url.toString() : url);
+	public setThumbnail(url: URL | string): this {
+		this.builder.setThumbnail(url instanceof URL ? url.toString() : url);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the timestamp of this embed
 	 * @param timestamp - The timestamp to set
 	 * @returns This embed instance
 	 */
-  public setTimestamp(timestamp: Date | number): this {
-    this.builder.setTimestamp(timestamp);
+	public setTimestamp(timestamp: Date | number): this {
+		this.builder.setTimestamp(timestamp);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the title of this embed
 	 * @param title - The title text
 	 * @returns This embed instance
 	 */
-  public setTitle(title: string): this {
-    this.builder.setTitle(title);
+	public setTitle(title: string): this {
+		this.builder.setTitle(title);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Sets the URL of this embed
 	 * @param url - The URL to set
 	 * @returns This embed instance
 	 */
-  public setURL(url: URL | string): this {
-    this.builder.setURL((url instanceof URL) ? url.toString() : url);
+	public setURL(url: URL | string): this {
+		this.builder.setURL(url instanceof URL ? url.toString() : url);
 
-    return this;
-  }
+		return this;
+	}
 
 	/**
 	 * Converts this embed to a JSON object
 	 * @returns The JSON representation of this embed
 	 */
-  public json(): APIEmbed {
-    return this.builder.toJSON();
-  }
+	public json(): APIEmbed {
+		return this.builder.toJSON();
+	}
 
 	/**
 	 * Processes and fixes embed field data

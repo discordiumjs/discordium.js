@@ -8,17 +8,25 @@ import type {
 	APIActionRowComponentTypes,
 } from 'discord-api-types/v10';
 
+import BaseBuilder from './BaseBuilder';
+
 /**
  * Represents a row of interactive components in a Discord message
  * @template ComponentType - The type of components this action row can contain
  */
-export default class ActionRow<ComponentType extends AnyComponentBuilder> {
+export default class ActionRow<ComponentType extends AnyComponentBuilder> extends BaseBuilder {
 	/**
-	 * Creates a new action row instance
-	 * @param options - The options for this action row
-	 * @param options.components - The components to add to this action row
+	 * The internal action row builder instance
+	 * @protected
 	 */
-	private readonly builder: ActionRowBuilder<ComponentType>;
+	protected declare builder: ActionRowBuilder<ComponentType>;
+
+	/**
+	 * The raw data for this action row component
+	 * @public
+	 * @readonly
+	 */
+	public declare readonly data: Partial<APIActionRowComponent<APIActionRowComponentTypes>>;
 
 	/**
 	 * Creates a new action row instance
@@ -26,11 +34,8 @@ export default class ActionRow<ComponentType extends AnyComponentBuilder> {
 	 * @param param0.components - The components to add to this action row
 	 * @param param0.data - Additional data for the action row
 	 */
-	public constructor({
-		components,
-		...data
-	}: Partial<APIActionRowComponent<APIActionRowComponentTypes>>) {
-		this.builder = new ActionRowBuilder<ComponentType>({ components, ...data });
+	public constructor(options?: Partial<APIActionRowComponent<APIActionRowComponentTypes>>) {
+		super(new ActionRowBuilder<ComponentType>(options));
 	}
 
 	/**
