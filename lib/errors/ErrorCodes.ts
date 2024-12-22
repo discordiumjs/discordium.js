@@ -364,3 +364,134 @@ export enum RPCErrorCodes {
     /** Capture shortcut already listening (5004) */
     CaptureShortcutAlreadyListening = 5004,
 }
+
+const keys = [
+    'ClientInvalidOption',
+    'ClientInvalidProvidedShards',
+    'ClientMissingIntents',
+    'ClientNotReady',
+  
+    'TokenInvalid',
+    'TokenMissing',
+    'ApplicationCommandPermissionsTokenMissing',
+  
+    'BitFieldInvalid',
+  
+    'ShardingNoShards',
+    'ShardingInProcess',
+    'ShardingInvalidEvalBroadcast',
+    'ShardingShardNotFound',
+    'ShardingAlreadySpawned',
+    'ShardingProcessExists',
+    'ShardingWorkerExists',
+    'ShardingReadyTimeout',
+    'ShardingReadyDisconnected',
+    'ShardingReadyDied',
+    'ShardingNoChildExists',
+    'ShardingShardMiscalculation',
+  
+    'ColorRange',
+    'ColorConvert',
+  
+    'InviteOptionsMissingChannel',
+  
+    'InteractionCollectorError',
+  
+    'FileNotFound',
+  
+    'UserNoDMChannel',
+  
+    'VoiceNotStageChannel',
+  
+    'VoiceStateNotOwn',
+    'VoiceStateInvalidType',
+  
+    'ReqResourceType',
+  
+    'MessageBulkDeleteType',
+    'MessageContentType',
+    'MessageNonceRequired',
+    'MessageNonceType',
+  
+    'BanResolveId',
+    'FetchBanResolveId',
+  
+    'PruneDaysType',
+  
+    'GuildChannelResolve',
+    'GuildVoiceChannelResolve',
+    'GuildChannelOrphan',
+    'GuildChannelUnowned',
+    'GuildOwned',
+    'GuildMembersTimeout',
+    'GuildUncachedMe',
+    'ChannelNotCached',
+    'StageChannelResolve',
+    'GuildScheduledEventResolve',
+    'FetchOwnerId',
+  
+    'InvalidType',
+    'InvalidElement',
+  
+    'MessageThreadParent',
+    'MessageExistingThread',
+    'ThreadInvitableType',
+    'NotAThreadOfParent',
+  
+    'WebhookMessage',
+    'WebhookTokenUnavailable',
+    'WebhookURLInvalid',
+    'WebhookApplication',
+    'MessageReferenceMissing',
+  
+    'EmojiType',
+    'EmojiManaged',
+    'MissingManageGuildExpressionsPermission',
+  
+    'NotGuildSticker',
+  
+    'ReactionResolveUser',
+  
+    'InviteResolveCode',
+  
+    'InviteNotFound',
+  
+    'DeleteGroupDMChannel',
+    'FetchGroupDMChannel',
+  
+    'MemberFetchNonceLength',
+  
+    'GlobalCommandPermissions',
+    'GuildUncachedEntityResolve',
+  
+    'InteractionAlreadyReplied',
+    'InteractionNotReplied',
+  
+    'CommandInteractionOptionNotFound',
+    'CommandInteractionOptionType',
+    'CommandInteractionOptionEmpty',
+    'CommandInteractionOptionNoSubcommand',
+    'CommandInteractionOptionNoSubcommandGroup',
+    'CommandInteractionOptionInvalidChannelType',
+    'AutocompleteInteractionOptionNoFocusedOption',
+  
+    'ModalSubmitInteractionFieldNotFound',
+    'ModalSubmitInteractionFieldType',
+  
+    'InvalidMissingScopes',
+    'InvalidScopesWithPermissions',
+  
+    'NotImplemented',
+  
+    'SweepFilterReturn',
+  
+    'GuildForumMessageRequired',
+  
+    'EntitlementCreateInvalidOwner',
+  
+    'BulkBanUsersOptionEmpty',
+  
+    'PollAlreadyExpired',
+  ];
+
+  export const DiscordiumErrorCodes = Object.fromEntries(keys.map((key) => [key, key]));
