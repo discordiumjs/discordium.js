@@ -41,7 +41,7 @@ export class PartialCalculator {
 	 * @param partials - Initial bitfields representing partials.
 	 */
 	constructor(partials: number[] = []) {
-		this.partials = partials.reduce((acc, p) => acc | p, 0);
+		this.partials = PartialCalculator.combine(...partials);
 	}
 
 	/**
@@ -106,14 +106,13 @@ export class PartialCalculator {
 	}
 
 	/**
-	 * Creates a PartialCalculator instance from an array of partial types.
-	 * @param partials - Array of partial types.
-	 * @returns A new PartialCalculator instance.
+	 * Converts an array of partial types to a bitfield and returns the enabled partials
+	 * @param partials - Array of partial types
+	 * @returns Array of enabled partial types
 	 */
-	public static fromPartials(
-		...partials: GatewayPartials[]
-	): PartialCalculator {
-		return new PartialCalculator(partials);
+	public static fromPartials(...partials: GatewayPartials[]): GatewayPartials[] {
+		const bitfield = PartialCalculator.combine(...partials);
+		return PartialCalculator.fromBitfield(bitfield);
 	}
 
 	/**
@@ -125,5 +124,14 @@ export class PartialCalculator {
 		return Object.values(GatewayPartials)
 			.filter((value) => typeof value === 'number' && (bitfield & value) !== 0)
 			.map((value) => value as GatewayPartials);
+	}
+
+	/**
+	 * Combines multiple partial bitfields into a single bitfield
+	 * @param partials - The partials to combine
+	 * @returns Combined bitfield value
+	 */
+	public static combine(...partials: number[]): number {
+		return partials.reduce((acc, partial) => acc | partial, 0);
 	}
 }
