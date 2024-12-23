@@ -40,7 +40,7 @@ export class PartialCalculator {
 	 * Initializes a new instance of PartialCalculator.
 	 * @param partials - Initial bitfields representing partials.
 	 */
-	constructor(partials: number[] = []) {
+	public constructor(partials: number[] = []) {
 		// @ts-ignore
 		this.partials = this.constructor.combine(...partials);
 	}

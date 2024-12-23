@@ -1,7 +1,6 @@
 import { parse } from 'node:path';
 import { Collection } from '@discordjs/collection';
 import { ChannelType, RouteBases, Routes } from 'discord-api-types/v10';
-import { fetch } from 'undici';
 import Colors from './Colors';
 import Attachment from '../structures/Attachment';
 import GuildChannel from '../structures/GuildChannel';
