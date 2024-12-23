@@ -113,7 +113,7 @@ export class PartialCalculator {
 	 */
 	public static fromPartials(...partials: GatewayPartials[]): GatewayPartials[] {
 		const bitfield = PartialCalculator.combine(...partials);
-		return PartialCalculator.fromBitfield(bitfield);
+		return PartialCalculator.fromBitField(bitfield);
 	}
 
 	/**
@@ -121,7 +121,7 @@ export class PartialCalculator {
 	 * @param bitfield - The bitfield to convert.
 	 * @returns An array of partial types.
 	 */
-	public static fromBitfield(bitfield: number): GatewayPartials[] {
+	public static fromBitField(bitfield: number): GatewayPartials[] {
 		return Object.values(GatewayPartials)
 			.filter((value) => typeof value === 'number' && (bitfield & value) !== 0)
 			.map((value) => value as GatewayPartials);
