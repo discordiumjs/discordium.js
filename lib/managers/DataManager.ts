@@ -4,6 +4,8 @@ import {
 	DiscordiumErrorCodes,
 	JSONErrorCodes,
 } from '../errors';
+import type { Snowflake } from 'discord-api-types/v10';
+import type { Collection } from '@discordjs/collection';
 
 /**
  * Manages the API methods of a data model along with a collection of instances.
