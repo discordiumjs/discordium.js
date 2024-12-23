@@ -52,21 +52,21 @@ function flatten<T extends Record<string, unknown>>(
 
 		// If it's a Collection, make the array of keys
 		if (element instanceof Collection)
-			out[newProp] = Array.from(element.keys());
+			out[resolvedProp] = Array.from(element.keys());
 		// If the valueOf is a Collection, use its array of keys
 		else if (valueOf instanceof Collection)
-			out[newProp] = Array.from(valueOf.keys());
+			out[resolvedProp] = Array.from(valueOf.keys());
 		// If it's an array, call toJSON function on each element if present, otherwise flatten each element
 		else if (Array.isArray(element))
-			out[newProp] = element.map((elm) => elm.toJSON?.() ?? flatten(elm));
+			out[resolvedProp] = element.map((elm) => elm.toJSON?.() ?? flatten(elm));
 		// If it's an object with a primitive `valueOf`, use that value
-		else if (typeof valueOf !== 'object') out[newProp] = valueOf;
+		else if (typeof valueOf !== 'object') out[resolvedProp] = valueOf;
 		// If it's an object with a toJSON function, use the return value of it
-		else if (hasToJSON) out[newProp] = element.toJSON();
+		else if (hasToJSON) out[resolvedProp] = element.toJSON();
 		// If element is an object, use the flattened version of it
-		else if (typeof element === 'object') out[newProp] = flatten(element);
+		else if (typeof element === 'object') out[resolvedProp] = flatten(element);
 		// If it's a primitive
-		else if (!elemIsObj) out[newProp] = element;
+		else if (!elemIsObj) out[resolvedProp] = element;
 	}
 
 	return out;
