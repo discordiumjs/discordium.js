@@ -1,4 +1,5 @@
 import { ButtonBuilder } from '@discordjs/builders';
+import { isJSONEncodable } from '@discordjs/util';
 import {
 	APIButtonComponent,
 	APIMessageComponentEmoji,
@@ -7,6 +8,7 @@ import {
 } from 'discord-api-types/v10';
 
 import BaseBuilder from './BaseBuilder';
+import { resolvePartialEmoji } from '../../util/Util';
 
 /**
  * Represents an interactive button component in a Discord message
@@ -68,8 +70,9 @@ export default class Button extends BaseBuilder {
 	 * @param emoji - The emoji to display
 	 * @returns This button instance
 	 */
-	public setEmoji(emoji: APIMessageComponentEmoji): this {
-		this.builder.setEmoji(emoji);
+	public setEmoji(emoji: string | APIMessageComponentEmoji): this {
+		// @ts-ignore
+		this.builder.setEmoji(typeof emoji === 'string' ? resolvePartialEmoji(emoji) : emoji);
 
 		return this;
 	}
@@ -124,5 +127,15 @@ export default class Button extends BaseBuilder {
 	 */
 	public json(): APIButtonComponent {
 		return this.builder.toJSON();
+	}
+
+	/**
+	 * Creates a new button builder from JSON data
+	 * @param {ButtonBuilder | APIButtonComponent} other The other data
+	 * @returns {Button}
+	 */
+	static from(other: Button | APIButtonComponent): Button {
+		// @ts-ignore
+		return new this.constructor(isJSONEncodable(other) ? other.toJSON() : other);
 	}
 }

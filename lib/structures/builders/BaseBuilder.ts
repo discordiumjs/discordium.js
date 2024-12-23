@@ -20,8 +20,8 @@ export default class BaseBuilder {
 	 * @param builder - The internal builder to use
 	 * @protected
 	 */
-	protected constructor(builder: any) {
+	protected constructor(builder?: any) {
 		this.builder = builder;
-		this.data = this.builder.data;
+		this.data = this.builder?.data;
 	}
 }
