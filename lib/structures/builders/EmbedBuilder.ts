@@ -60,6 +60,13 @@ export default class Embed extends BaseBuilder {
 
 			return this;
 		},
+		/**
+		 * Fetches the fields of this embed.
+		 * @returns An array of embed fields, or an empty array if none exist.
+		 */
+		fetch: (): APIEmbedField[] => {
+			return this.data?.fields ?? [];
+		}
 	};
 
 	/**
@@ -133,7 +140,7 @@ export default class Embed extends BaseBuilder {
 	 * @param timestamp - The timestamp to set
 	 * @returns This embed instance
 	 */
-	public setTimestamp(timestamp: Date | number): this {
+	public setTimestamp(timestamp?: Date | number): this {
 		this.builder.setTimestamp(timestamp);
 
 		return this;
