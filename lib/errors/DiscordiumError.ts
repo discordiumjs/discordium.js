@@ -36,7 +36,7 @@ function _makeDiscordiumError(Base) {
  * @returns The formatted error message string
  * @throws {Error} If the code is invalid or has no associated message
  */
-export function message(code, args: unknown[]): string {
+export function message(code: string, args: unknown[]): string {
 	if (!(code in DiscordiumErrorCodes))
 		throw new Error('Error code must be a valid DiscordiumErrorCodes');
 
@@ -44,8 +44,8 @@ export function message(code, args: unknown[]): string {
 	if (!msg) throw new Error(`No message associated with error code: ${code}.`);
 	// @ts-ignore
 	if (typeof msg === 'function') return msg(...args);
-	if (!args?.length) return msg;
-	return msg.replace(/%s/g, () => args.shift() as string);
+	
+	return args.length ? msg.replace(/%s/g, () => args.shift() as string) : msg;
 }
 
 export const DiscordiumError = _makeDiscordiumError(Error);
