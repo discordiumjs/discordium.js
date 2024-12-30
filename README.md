@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> ⚠️ **Warning:** discordium.js is currently in pre-alpha state. There is no usable version yet.
+> ⚠️ discordium.js is currently in pre-alpha state. There is no usable version yet.
 
 # discordium.js
 
